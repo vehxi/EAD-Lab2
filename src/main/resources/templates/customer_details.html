@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация о покупателе</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+<div class="container">
+    <h1>Информация о покупателе</h1>
+
+    <div class="customer-details">
+        <p>Фамилия: <strong th:text="${selectedCustomer.lastName}"></strong></p>
+        <p>Имя: <strong th:text="${selectedCustomer.name}"></strong></p>
+        <p>Отчество: <strong th:text="${selectedCustomer.patronymic}"></strong></p>
+        <p>Пол: <strong th:text="${selectedCustomer.gender}"></strong></p>
+        <p>Национальность: <strong th:text="${selectedCustomer.nationality}"></strong></p>
+        <p>Рост: <strong th:text="${selectedCustomer.height}"></strong></p>
+        <p>Вес: <strong th:text="${selectedCustomer.weight}"></strong></p>
+        <p>Дата рождения: <strong th:text="${selectedCustomer.birthDate}"></strong></p>
+        <p>Телефон: <strong th:text="${selectedCustomer.phoneNumber}"></strong></p>
+        <p>Номер кредитной карты: <strong th:text="${selectedCustomer.creditCardNumber}"></strong></p>
+        <p>Номер банковского счёта: <strong th:text="${selectedCustomer.bankAccountNumber}"></strong></p>
+    </div>
+
+    <p>
+        <a class="btn btn-secondary" th:href="@{/customers}">
+            Вернуться к списку
+        </a>
+    </p>
+</div>
+</body>
+</html>

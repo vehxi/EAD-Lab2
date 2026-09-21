@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Покупатели</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+<div class="container">
+    <h1>Покупатели</h1>
+
+    <p class="page-actions">
+        <a class="btn" th:href="@{/customers/add}">
+            Добавить покупателя
+        </a>
+    </p>
+
+    <span class="empty-state" th:if="${customers.size() == 0}">
+        Список покупателей пустой
+    </span>
+
+    <table th:if="${customers.size() > 0}" class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <td>Фамилия</td>
+            <td>Имя</td>
+            <td>Телефон</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="customer : ${customers}">
+            <td th:text="${customer.lastName}"></td>
+            <td th:text="${customer.name}"></td>
+            <td th:text="${customer.phoneNumber}"></td>
+
+            <td class="table-actions">
+                <a class="btn btn-secondary"
+                   th:href="@{'/customers/details/' + ${customer.id}}">
+                    Подробнее
+                </a>
+            </td>
+
+            <td class="table-actions">
+                <a class="btn btn-secondary"
+                   th:href="@{'/customers/update/' + ${customer.id}}">
+                    Редактировать
+                </a>
+            </td>
+
+            <td class="table-actions">
+                <a class="btn btn-danger"
+                   th:href="@{'/customers/delete/' + ${customer.id}}">
+                    Удалить
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
